@@ -17,17 +17,12 @@ class ViewController: UIViewController {
     // MARK: - Variables
     var device: MTLDevice!
     var metalLayer: CAMetalLayer!
-    var vertexBuffer: MTLBuffer!
+    var vertexBuffer: MTLBuffer! = nil
     var pipelineState: MTLRenderPipelineState!
     var commandQueue: MTLCommandQueue!
-    
+    var objectToDraw: Triangle!
     // display stuff
     var timer: CADisplayLink!
-    
-    private var vertexData: [Float] = [
-    0.0, 1.0, 0.0,
-    -1.0,-1.0, 0.0,
-    1.0, -1.0, 0.0]
     
     // MARK: - View lifecycle
     
@@ -59,8 +54,7 @@ class ViewController: UIViewController {
     }
     
     private func configureVertexBuffer() {
-        let dataSize = vertexData.count * MemoryLayout.size(ofValue: vertexData.first)
-        vertexBuffer = device.makeBuffer(bytes: vertexData, length: dataSize, options: [])
+        objectToDraw = Triangle(device: device)
     }
     
     private func configureRenderPipeline() {
@@ -97,21 +91,8 @@ class ViewController: UIViewController {
     
     private func render() {
         guard let drawable = metalLayer.nextDrawable() else { return }
-        let renderPassDescriptor = MTLRenderPassDescriptor()
-        renderPassDescriptor.colorAttachments[0].texture = drawable.texture
-        renderPassDescriptor.colorAttachments[0].loadAction = .clear
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 33.0/255.0, blue: 78.0/255.0, alpha: 0.6)
-        createRenderCommandEncoder(with: renderPassDescriptor, for: drawable)
+        objectToDraw.render(commandQueue: commandQueue, pipelineState: pipelineState, drawable: drawable, clearColor: nil)
     }
-    private func createRenderCommandEncoder(with descriptor: MTLRenderPassDescriptor, for drawable: CAMetalDrawable) {
-        let commandBuffer = commandQueue.makeCommandBuffer()
-        let renderEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: descriptor)
-        renderEncoder?.setRenderPipelineState(pipelineState)
-        renderEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        renderEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 3, instanceCount: 1)
-        renderEncoder?.endEncoding()
-        commandBuffer?.present(drawable)
-        commandBuffer?.commit()
-    }
+    
 }
 

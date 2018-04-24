@@ -13,6 +13,11 @@
 		0CD692A3208E013000BF04F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD692A2208E013000BF04F6 /* Assets.xcassets */; };
 		0CD692A6208E013000BF04F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CD692A4208E013000BF04F6 /* LaunchScreen.storyboard */; };
 		0CD692AE208E063600BF04F6 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0CD692AD208E063600BF04F6 /* Shaders.metal */; };
+		0CD692B5208F31D400BF04F6 /* Matrix4Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD692B4208F31D400BF04F6 /* Matrix4Helper.m */; };
+		0CD692B7208F417300BF04F6 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD692B6208F417300BF04F6 /* Vertex.swift */; };
+		0CD692BA208F41CC00BF04F6 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD692B9208F41CC00BF04F6 /* Node.swift */; };
+		0CD692BC208F453900BF04F6 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD692BB208F453900BF04F6 /* AppColor.swift */; };
+		0CD692BE208F5D7E00BF04F6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD692BD208F5D7E00BF04F6 /* Triangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,13 @@
 		0CD692A5208E013000BF04F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CD692A7208E013000BF04F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CD692AD208E063600BF04F6 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		0CD692AF208F314600BF04F6 /* Matrix4Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix4Helper.h; sourceTree = "<group>"; };
+		0CD692B0208F315C00BF04F6 /* MetalTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MetalTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		0CD692B4208F31D400BF04F6 /* Matrix4Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Matrix4Helper.m; sourceTree = "<group>"; };
+		0CD692B6208F417300BF04F6 /* Vertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		0CD692B9208F41CC00BF04F6 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		0CD692BB208F453900BF04F6 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		0CD692BD208F5D7E00BF04F6 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +70,36 @@
 			children = (
 				0CD6929B208E013000BF04F6 /* AppDelegate.swift */,
 				0CD6929D208E013000BF04F6 /* ViewController.swift */,
+				0CD692B3208F316600BF04F6 /* Common */,
 				0CD692AD208E063600BF04F6 /* Shaders.metal */,
+				0CD692B8208F41BE00BF04F6 /* Model */,
 				0CD6929F208E013000BF04F6 /* Main.storyboard */,
 				0CD692A2208E013000BF04F6 /* Assets.xcassets */,
 				0CD692A4208E013000BF04F6 /* LaunchScreen.storyboard */,
 				0CD692A7208E013000BF04F6 /* Info.plist */,
+				0CD692B0208F315C00BF04F6 /* MetalTest-Bridging-Header.h */,
 			);
 			path = MetalTest;
+			sourceTree = "<group>";
+		};
+		0CD692B3208F316600BF04F6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0CD692AF208F314600BF04F6 /* Matrix4Helper.h */,
+				0CD692BB208F453900BF04F6 /* AppColor.swift */,
+				0CD692B4208F31D400BF04F6 /* Matrix4Helper.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0CD692B8208F41BE00BF04F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0CD692B6208F417300BF04F6 /* Vertex.swift */,
+				0CD692B9208F41CC00BF04F6 /* Node.swift */,
+				0CD692BD208F5D7E00BF04F6 /* Triangle.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +134,7 @@
 				TargetAttributes = {
 					0CD69297208E012F00BF04F6 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -141,6 +177,11 @@
 				0CD692AE208E063600BF04F6 /* Shaders.metal in Sources */,
 				0CD6929E208E013000BF04F6 /* ViewController.swift in Sources */,
 				0CD6929C208E013000BF04F6 /* AppDelegate.swift in Sources */,
+				0CD692BC208F453900BF04F6 /* AppColor.swift in Sources */,
+				0CD692BA208F41CC00BF04F6 /* Node.swift in Sources */,
+				0CD692B7208F417300BF04F6 /* Vertex.swift in Sources */,
+				0CD692B5208F31D400BF04F6 /* Matrix4Helper.m in Sources */,
+				0CD692BE208F5D7E00BF04F6 /* Triangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PX6RR23T8;
 				INFOPLIST_FILE = MetalTest/Info.plist;
@@ -293,6 +335,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vol.shlikhta.MetalTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalTest/MetalTest-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,6 +346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PX6RR23T8;
 				INFOPLIST_FILE = MetalTest/Info.plist;
@@ -311,6 +356,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vol.shlikhta.MetalTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalTest/MetalTest-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
