@@ -31,6 +31,6 @@ vertex VertexOut basic_vertex(
     return VertexOut;
 }
 
-fragment half4 basic_fragment() {
-    return half4(1.0);
+fragment half4 basic_fragment(VertexOut interpolated [[stage_in]]) {
+    return half4(interpolated.color[0], interpolated.color[1], interpolated.color[2], interpolated.color[3]);
 }
