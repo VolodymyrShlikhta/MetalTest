@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var vertexBuffer: MTLBuffer! = nil
     var pipelineState: MTLRenderPipelineState!
     var commandQueue: MTLCommandQueue!
-    var objectToDraw: Triangle!
+    var objectToDraw: Cube!
     // display stuff
     var timer: CADisplayLink!
     
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     }
     
     private func configureVertexBuffer() {
-        objectToDraw = Triangle(device: device)
+        objectToDraw = Cube(device: device)
     }
     
     private func configureRenderPipeline() {
